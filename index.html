@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Account Details</title>
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Roboto+Mono:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    /* General Styles */
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #6a11cb, #2575fc);
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      color: #333;
+    }
+
+    .container {
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(10px);
+      border-radius: 15px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+      padding: 30px;
+      max-width: 400px;
+      width: 100%;
+      text-align: center;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    h1 {
+      margin-bottom: 20px;
+      font-size: 28px;
+      font-weight: 600;
+      color: #fff;
+      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    }
+
+    .header {
+      font-size: 24px;
+      font-weight: 600;
+      color: #ffdd57;
+      margin-bottom: 20px;
+      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    }
+
+    .details {
+      margin-top: 20px;
+      text-align: left;
+    }
+
+    .details p {
+      margin: 15px 0;
+      font-size: 16px;
+      display: flex;
+      align-items: center;
+      color: #fff;
+    }
+
+    .details strong {
+      width: 120px;
+      display: inline-block;
+      font-family: 'Roboto Mono', monospace;
+      color: #ffdd57;
+      font-weight: 600;
+    }
+
+    .details span {
+      flex: 1;
+      font-family: 'Roboto Mono', monospace;
+      color: #fff;
+    }
+
+    /* Button Container */
+    .button-container {
+      display: flex;
+      justify-content: space-between;
+      gap: 10px;
+      margin-top: 20px;
+    }
+
+    /* Button Style */
+    .button {
+      flex: 1;
+      padding: 10px 20px;
+      background: #ffdd57;
+      color: #333;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+      font-weight: 600;
+      transition: transform 0.3s ease, background 0.3s ease;
+    }
+
+    .button:hover {
+      background: #ffcc00;
+      transform: translateY(-2px);
+    }
+
+    /* Message Style */
+    .message {
+      margin-top: 15px;
+      font-size: 16px;
+      color: #ffdd57;
+      font-weight: 600;
+      font-family: 'Roboto Mono', monospace;
+    }
+
+    /* QR Image Style */
+    .qr-image {
+      margin-top: 15px;
+      max-width: 100%;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    }
+
+    /* Animation for Container */
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .container {
+      animation: fadeIn 0.8s ease-out;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header">Heeeeeey, good to see you</div>
+    <h1>Account Details</h1>
+    <div class="details">
+      <p>
+        <strong>Account Holder:</strong>
+        <span id="account-holder">Rohan Kisan Yadav</span>
+      </p>
+      <p>
+        <strong>Account Number:</strong>
+        <span id="account-number">5895 0212 0004 4414</span>
+      </p>
+      <p>
+        <strong>IFSC Code:</strong>
+        <span id="ifsc-code">UBIN0558958</span>
+      </p>
+      <p>
+        <strong>UPI ID:</strong>
+        <span id="upi-id">9325506939@ybl</span>
+      </p>
+      <p>
+        <strong>Bank Name:</strong>
+        <span id="bank-name">UNION BANK OF INDIA, THERGAON BRANCH</span>
+      </p>
+    </div>
+    <div class="button-container">
+      <button class="button" onclick="showMessage('Hey, just wanted to drop you a line: SIR PLEASE PAYMENT<br>Pending Payment: ₹37,500<br>DEC Sal: ₹15,000<br>JAN Sal: ₹15,000<br>PREV REM OF HALF MONTH SAL: ₹7,500')">Hey, click here for other details</button>
+      <button class="button" onclick="showQR()">View QR</button>
+    </div>
+    <div id="message" class="message"></div>
+    <img id="qr-image" class="qr-image" src="https://i.ibb.co/5hcrMT3H/rohan-qr.jpg" alt="QR Code" style="display: none;">
+  </div>
+
+  <script>
+    function showMessage(message) {
+      const messageDiv = document.getElementById('message');
+      messageDiv.innerHTML = message;
+      document.getElementById('qr-image').style.display = 'none';
+    }
+
+    function showQR() {
+      const qrImage = document.getElementById('qr-image');
+      qrImage.style.display = 'block';
+      document.getElementById('message').textContent = 'Thank You! 🙏';
+    }
+  </script>
+</body>
+</html>
